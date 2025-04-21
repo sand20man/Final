@@ -1,3 +1,5 @@
+using backend.Controllers;
+using backend.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,8 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<BooksDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("BookConnection")));
+builder.Services.AddDbContext<EntertainmentAgencyExampleContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("EntertainmentAgencyConnection")));
 
 builder.Services.AddCors(options =>
 {
