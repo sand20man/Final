@@ -6,6 +6,7 @@ import {
   engagementApi,
   EntertainerEngagementStats,
 } from '../api/engagementApi';
+import '../styles/main.css';
 
 export default function EntertainersList() {
   const [entertainers, setEntertainers] = useState<Entertainer[]>([]);
@@ -25,7 +26,6 @@ export default function EntertainersList() {
 
         setEntertainers(entertainersData);
 
-        // Convert stats array to a map for easy lookup
         const statsMap = statsData.reduce(
           (acc, stat) => {
             acc[stat.entertainerId] = stat;
@@ -49,9 +49,9 @@ export default function EntertainersList() {
 
   if (loading) {
     return (
-      <div className="container-fluid vh-100 p-0 d-flex flex-column">
+      <div className="app-container">
         <Navbar />
-        <div className="flex-grow-1 p-4 bg-light d-flex align-items-center justify-content-center">
+        <div className="content d-flex align-items-center justify-content-center">
           <div className="spinner-border text-primary" role="status">
             <span className="visually-hidden">Loading...</span>
           </div>
@@ -62,36 +62,36 @@ export default function EntertainersList() {
 
   if (error) {
     return (
-      <div className="container-fluid vh-100 p-0 d-flex flex-column">
+      <div className="app-container">
         <Navbar />
-        <div className="flex-grow-1 p-4 bg-light d-flex align-items-center justify-content-center">
-          <div className="alert alert-danger">{error}</div>
+        <div className="content d-flex align-items-center justify-content-center">
+          <div className="alert alert-danger text-center">{error}</div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="container-fluid vh-100 p-0 d-flex flex-column">
+    <div className="app-container">
       <Navbar />
-      <div className="flex-grow-1 p-4 bg-light">
+      <div className="content">
         <div className="d-flex justify-content-between align-items-center mb-4">
-          <h1>Entertainers</h1>
+          <h1 className="m-0">Entertainers</h1>
           <Link to="/entertainers/add" className="btn btn-primary">
             Add New Entertainer
           </Link>
         </div>
 
-        <div className="table-responsive">
+        <div className="table-container">
           <table className="table table-striped">
             <thead>
               <tr>
-                <th>Stage Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Engagements</th>
-                <th>Most Recent</th>
-                <th>Actions</th>
+                <th style={{ width: '20%' }}>Stage Name</th>
+                <th style={{ width: '15%' }}>Phone</th>
+                <th style={{ width: '20%' }}>Email</th>
+                <th style={{ width: '15%' }}>Engagements</th>
+                <th style={{ width: '15%' }}>Most Recent</th>
+                <th style={{ width: '15%' }}>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -113,7 +113,7 @@ export default function EntertainersList() {
                     <td>
                       <Link
                         to={`/entertainers/${entertainer.entertainerId}`}
-                        className="btn btn-sm btn-info me-2"
+                        className="btn btn-primary btn-sm"
                       >
                         View
                       </Link>

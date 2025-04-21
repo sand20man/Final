@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { entertainerApi, Entertainer } from '../api/entertainerApi';
+import '../styles/main.css';
 
 export default function EntertainerDetails() {
   const { id } = useParams();
@@ -61,9 +62,9 @@ export default function EntertainerDetails() {
 
   if (loading) {
     return (
-      <div className="container-fluid vh-100 p-0 d-flex flex-column">
+      <div className="app-container">
         <Navbar />
-        <div className="flex-grow-1 p-4 bg-light d-flex align-items-center justify-content-center">
+        <div className="content d-flex align-items-center justify-content-center">
           <div className="spinner-border text-primary" role="status">
             <span className="visually-hidden">Loading...</span>
           </div>
@@ -74,10 +75,10 @@ export default function EntertainerDetails() {
 
   if (error) {
     return (
-      <div className="container-fluid vh-100 p-0 d-flex flex-column">
+      <div className="app-container">
         <Navbar />
-        <div className="flex-grow-1 p-4 bg-light d-flex align-items-center justify-content-center">
-          <div className="alert alert-danger">{error}</div>
+        <div className="content d-flex align-items-center justify-content-center">
+          <div className="alert alert-danger text-center">{error}</div>
         </div>
       </div>
     );
@@ -85,29 +86,31 @@ export default function EntertainerDetails() {
 
   if (!entertainer) {
     return (
-      <div className="container-fluid vh-100 p-0 d-flex flex-column">
+      <div className="app-container">
         <Navbar />
-        <div className="flex-grow-1 p-4 bg-light d-flex align-items-center justify-content-center">
-          <div className="alert alert-warning">Entertainer not found</div>
+        <div className="content d-flex align-items-center justify-content-center">
+          <div className="alert alert-danger text-center">
+            Entertainer not found
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="container-fluid vh-100 p-0 d-flex flex-column">
+    <div className="app-container">
       <Navbar />
-      <div className="flex-grow-1 p-4 bg-light">
-        <div className="d-flex justify-content-between align-items-center mb-4 px-4">
-          <h1>{entertainer.entStageName}</h1>
-          <div>
+      <div className="content">
+        <div className="d-flex justify-content-between align-items-center mb-4">
+          <h1 className="m-0">{entertainer.entStageName}</h1>
+          <div className="d-flex gap-2">
             <button
-              className="btn btn-warning me-2"
+              className="btn btn-warning"
               onClick={() => setIsEditing(!isEditing)}
             >
               {isEditing ? 'Cancel' : 'Edit'}
             </button>
-            <button className="btn btn-danger me-2" onClick={handleDelete}>
+            <button className="btn btn-danger" onClick={handleDelete}>
               Delete
             </button>
             <button
@@ -119,10 +122,10 @@ export default function EntertainerDetails() {
           </div>
         </div>
 
-        <div className="card mx-4">
+        <div className="card">
           <div className="card-body">
-            <form onSubmit={handleSubmit}>
-              <div className="row mb-3">
+            <form onSubmit={handleSubmit} className="form-container">
+              <div className="row g-3">
                 <div className="col-md-6">
                   <label className="form-label">Stage Name</label>
                   <input
@@ -138,6 +141,7 @@ export default function EntertainerDetails() {
                     readOnly={!isEditing}
                   />
                 </div>
+
                 <div className="col-md-6">
                   <label className="form-label">Phone Number</label>
                   <input
@@ -153,9 +157,7 @@ export default function EntertainerDetails() {
                     readOnly={!isEditing}
                   />
                 </div>
-              </div>
 
-              <div className="row mb-3">
                 <div className="col-md-6">
                   <label className="form-label">Email</label>
                   <input
@@ -171,10 +173,11 @@ export default function EntertainerDetails() {
                     readOnly={!isEditing}
                   />
                 </div>
+
                 <div className="col-md-6">
                   <label className="form-label">Web Page</label>
                   <input
-                    type="string"
+                    type="url"
                     className="form-control"
                     value={entertainer.entWebPage}
                     onChange={(e) =>
@@ -186,9 +189,7 @@ export default function EntertainerDetails() {
                     readOnly={!isEditing}
                   />
                 </div>
-              </div>
 
-              <div className="row mb-3">
                 <div className="col-md-6">
                   <label className="form-label">Street Address</label>
                   <input
@@ -204,6 +205,7 @@ export default function EntertainerDetails() {
                     readOnly={!isEditing}
                   />
                 </div>
+
                 <div className="col-md-6">
                   <label className="form-label">City</label>
                   <input
@@ -219,9 +221,7 @@ export default function EntertainerDetails() {
                     readOnly={!isEditing}
                   />
                 </div>
-              </div>
 
-              <div className="row mb-3">
                 <div className="col-md-4">
                   <label className="form-label">State</label>
                   <input
@@ -237,6 +237,7 @@ export default function EntertainerDetails() {
                     readOnly={!isEditing}
                   />
                 </div>
+
                 <div className="col-md-4">
                   <label className="form-label">Zip Code</label>
                   <input
@@ -252,6 +253,7 @@ export default function EntertainerDetails() {
                     readOnly={!isEditing}
                   />
                 </div>
+
                 <div className="col-md-4">
                   <label className="form-label">SSN</label>
                   <input
@@ -264,13 +266,15 @@ export default function EntertainerDetails() {
                     readOnly={!isEditing}
                   />
                 </div>
-              </div>
 
-              {isEditing && (
-                <button type="submit" className="btn btn-primary">
-                  Save Changes
-                </button>
-              )}
+                {isEditing && (
+                  <div className="col-12">
+                    <button type="submit" className="btn btn-primary">
+                      Save Changes
+                    </button>
+                  </div>
+                )}
+              </div>
             </form>
           </div>
         </div>

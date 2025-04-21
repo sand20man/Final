@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { entertainerApi, Entertainer } from '../api/entertainerApi';
+import '../styles/main.css';
 
 export default function AddEntertainer() {
   const navigate = useNavigate();
@@ -39,19 +40,19 @@ export default function AddEntertainer() {
   };
 
   return (
-    <div className="container-fluid vh-100 p-0 d-flex flex-column">
+    <div className="app-container">
       <Navbar />
-      <div className="flex-grow-1 p-4 bg-light">
-        <div className="d-flex justify-content-between align-items-center mb-4 px-4">
-          <h1>Add New Entertainer</h1>
+      <div className="content">
+        <div className="d-flex justify-content-between align-items-center mb-4">
+          <h1 className="m-0">Add New Entertainer</h1>
         </div>
 
-        {error && <div className="alert alert-danger mx-4">{error}</div>}
+        {error && <div className="alert alert-danger">{error}</div>}
 
-        <div className="card mx-4">
+        <div className="card">
           <div className="card-body">
-            <form onSubmit={handleSubmit}>
-              <div className="row mb-3">
+            <form onSubmit={handleSubmit} className="form-container">
+              <div className="row g-3">
                 <div className="col-md-6">
                   <label className="form-label">Stage Name</label>
                   <input
@@ -63,6 +64,7 @@ export default function AddEntertainer() {
                     required
                   />
                 </div>
+
                 <div className="col-md-6">
                   <label className="form-label">Phone Number</label>
                   <input
@@ -74,9 +76,7 @@ export default function AddEntertainer() {
                     required
                   />
                 </div>
-              </div>
 
-              <div className="row mb-3">
                 <div className="col-md-6">
                   <label className="form-label">Email</label>
                   <input
@@ -88,19 +88,18 @@ export default function AddEntertainer() {
                     required
                   />
                 </div>
+
                 <div className="col-md-6">
                   <label className="form-label">Web Page</label>
                   <input
-                    type="string"
+                    type="url"
                     className="form-control"
                     name="entWebPage"
                     value={formData.entWebPage}
                     onChange={handleChange}
                   />
                 </div>
-              </div>
 
-              <div className="row mb-3">
                 <div className="col-md-6">
                   <label className="form-label">Street Address</label>
                   <input
@@ -112,6 +111,7 @@ export default function AddEntertainer() {
                     required
                   />
                 </div>
+
                 <div className="col-md-6">
                   <label className="form-label">City</label>
                   <input
@@ -123,9 +123,7 @@ export default function AddEntertainer() {
                     required
                   />
                 </div>
-              </div>
 
-              <div className="row mb-3">
                 <div className="col-md-4">
                   <label className="form-label">State</label>
                   <input
@@ -137,6 +135,7 @@ export default function AddEntertainer() {
                     required
                   />
                 </div>
+
                 <div className="col-md-4">
                   <label className="form-label">Zip Code</label>
                   <input
@@ -148,6 +147,7 @@ export default function AddEntertainer() {
                     required
                   />
                 </div>
+
                 <div className="col-md-4">
                   <label className="form-label">SSN</label>
                   <input
@@ -158,19 +158,21 @@ export default function AddEntertainer() {
                     onChange={handleChange}
                   />
                 </div>
-              </div>
 
-              <div className="d-flex gap-2">
-                <button type="submit" className="btn btn-primary">
-                  Add Entertainer
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={() => navigate('/entertainers')}
-                >
-                  Cancel
-                </button>
+                <div className="col-12">
+                  <div className="d-flex gap-2">
+                    <button type="submit" className="btn btn-primary">
+                      Add Entertainer
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      onClick={() => navigate('/entertainers')}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
               </div>
             </form>
           </div>

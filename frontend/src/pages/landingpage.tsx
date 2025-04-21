@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import '../styles/main.css';
 
 export default function LandingPage() {
   return (
-    <div className="container-fluid vh-100 p-0 d-flex flex-column">
+    <div className="app-container">
       <Navbar />
-      <div className="flex-grow-1 d-flex align-items-center justify-content-center bg-light">
+      <div className="landing-content">
         <div className="text-center">
           <h1 className="display-4 fw-bold mb-4">
             Welcome to the Entertainment Agency
