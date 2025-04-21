@@ -1,3 +1,6 @@
+/**
+ * Component for displaying the list of entertainers and their engagement statistics
+ */
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
@@ -9,6 +12,7 @@ import {
 import '../styles/main.css';
 
 export default function EntertainersList() {
+  /* State management */
   const [entertainers, setEntertainers] = useState<Entertainer[]>([]);
   const [stats, setStats] = useState<
     Record<number, EntertainerEngagementStats>
@@ -16,9 +20,11 @@ export default function EntertainersList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  /* Fetch entertainers and their engagement stats when component mounts */
   useEffect(() => {
     const fetchData = async () => {
       try {
+        /* Fetch both entertainers and stats in parallel */
         const [entertainersData, statsData] = await Promise.all([
           entertainerApi.getAll(),
           engagementApi.getEntertainerStats(),
@@ -26,6 +32,7 @@ export default function EntertainersList() {
 
         setEntertainers(entertainersData);
 
+        /* Convert stats array to a map for easy lookup */
         const statsMap = statsData.reduce(
           (acc, stat) => {
             acc[stat.entertainerId] = stat;
@@ -47,6 +54,7 @@ export default function EntertainersList() {
     fetchData();
   }, []);
 
+  /* Loading state UI */
   if (loading) {
     return (
       <div className="app-container">
@@ -60,6 +68,7 @@ export default function EntertainersList() {
     );
   }
 
+  /* Error state UI */
   if (error) {
     return (
       <div className="app-container">
@@ -71,10 +80,12 @@ export default function EntertainersList() {
     );
   }
 
+  /* Main render with entertainers table */
   return (
     <div className="app-container">
       <Navbar />
       <div className="content">
+        {/* Header with page title and add button */}
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h1 className="m-0">Entertainers</h1>
           <Link to="/entertainers/add" className="btn btn-primary">
@@ -82,6 +93,7 @@ export default function EntertainersList() {
           </Link>
         </div>
 
+        {/* Entertainers table */}
         <div className="table-container">
           <table className="table table-striped">
             <thead>
@@ -95,6 +107,7 @@ export default function EntertainersList() {
               </tr>
             </thead>
             <tbody>
+              {/* Map through entertainers to create table rows */}
               {entertainers.map((entertainer) => {
                 const entertainerStats = stats[entertainer.entertainerId];
                 return (
