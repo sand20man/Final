@@ -17,7 +17,7 @@ export interface Entertainer {
 }
 
 // Base URL for the entertainers API endpoints
-const API_BASE_URL = 'https://localhost:5000/api/entertainers';
+const API_BASE_URL = 'https://sandyfinal-b8e6dpb6atcmbqc3.australiaeast-01.azurewebsites.net/api/entertainers';
 
 /**
  * API service for managing entertainers

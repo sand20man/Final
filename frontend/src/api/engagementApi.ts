@@ -9,7 +9,7 @@ export interface EntertainerEngagementStats {
 }
 
 // Base URL for the engagements API endpoints
-const baseUrl = 'https://localhost:5000';
+const baseUrl = 'https://sandyfinal-b8e6dpb6atcmbqc3.australiaeast-01.azurewebsites.net';
 
 /**
  * API service for managing engagement statistics
