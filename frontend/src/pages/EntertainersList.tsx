@@ -59,9 +59,11 @@ export default function EntertainersList() {
     return (
       <div className="app-container">
         <Navbar />
-        <div className="content d-flex align-items-center justify-content-center">
-          <div className="spinner-border text-primary" role="status">
-            <span className="visually-hidden">Loading...</span>
+        <div className="content">
+          <div className="spinner-container">
+            <div className="spinner" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
           </div>
         </div>
       </div>

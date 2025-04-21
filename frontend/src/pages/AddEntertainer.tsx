@@ -109,7 +109,7 @@ export default function AddEntertainer() {
                 <div className="col-md-6">
                   <label className="form-label">Web Page</label>
                   <input
-                    type="url"
+                    type="string"
                     className="form-control"
                     name="entWebPage"
                     value={formData.entWebPage}
