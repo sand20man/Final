@@ -64,11 +64,9 @@ export default function EntertainerDetails() {
     return (
       <div className="app-container">
         <Navbar />
-        <div className="content">
-          <div className="spinner-container">
-            <div className="spinner" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>
+        <div className="spinner-container">
+          <div className="spinner text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
         </div>
       </div>
@@ -179,7 +177,7 @@ export default function EntertainerDetails() {
                 <div className="col-md-6">
                   <label className="form-label">Web Page</label>
                   <input
-                    type="url"
+                    type="string"
                     className="form-control"
                     value={entertainer.entWebPage}
                     onChange={(e) =>

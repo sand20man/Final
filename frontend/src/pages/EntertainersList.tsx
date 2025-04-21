@@ -59,11 +59,9 @@ export default function EntertainersList() {
     return (
       <div className="app-container">
         <Navbar />
-        <div className="content">
-          <div className="spinner-container">
-            <div className="spinner" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>
+        <div className="spinner-container">
+          <div className="spinner text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
         </div>
       </div>
