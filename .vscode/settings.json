@@ -1,4 +1,4 @@
 {
   "appService.defaultWebAppToDeploy": "undefined/subscriptions/e056dfb1-6f90-43e5-92db-dea32019b32e/resourceGroups/appsvc_windows_southeastasia_basic/providers/Microsoft.Web/sites/SandyFinal",
-  "appService.deploySubpath": "."
+  "appService.deploySubpath": "backend/backend/publish"
 }

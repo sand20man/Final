@@ -259,3 +259,9 @@
 /Users/colemansandy/Desktop/BYU/JuniorCore/413/Final/backend/backend/bin/Debug/net8.0/runtimes/win/lib/net7.0/System.Drawing.Common.dll
 /Users/colemansandy/Desktop/BYU/JuniorCore/413/Final/backend/backend/bin/Debug/net8.0/runtimes/win/lib/net7.0/System.Security.Cryptography.ProtectedData.dll
 /Users/colemansandy/Desktop/BYU/JuniorCore/413/Final/backend/backend/bin/Debug/net8.0/runtimes/win/lib/net7.0/System.Windows.Extensions.dll
+/Users/colemansandy/Desktop/BYU/JuniorCore/413/Final/backend/backend/bin/Debug/net8.0/publish/web.config
+/Users/colemansandy/Desktop/BYU/JuniorCore/413/Final/backend/backend/bin/Debug/net8.0/publish/appsettings.Development.json
+/Users/colemansandy/Desktop/BYU/JuniorCore/413/Final/backend/backend/bin/Debug/net8.0/publish/appsettings.json
+/Users/colemansandy/Desktop/BYU/JuniorCore/413/Final/backend/backend/bin/Debug/net8.0/publish/backend.deps.json
+/Users/colemansandy/Desktop/BYU/JuniorCore/413/Final/backend/backend/bin/Debug/net8.0/publish/backend.runtimeconfig.json
+/Users/colemansandy/Desktop/BYU/JuniorCore/413/Final/backend/backend/bin/Debug/net8.0/EntertainmentAgencyExample.sqlite
